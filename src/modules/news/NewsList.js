@@ -2,7 +2,7 @@
 // panggil via api
 // yang mau di tampilkan sumber berita
 import React from "react";
-import { Card, Icon, Image, Segment, Dimmer, Loader } from "semantic-ui-react";
+import { Card, Icon, Image, Segment, Dimmer, Loader,Header } from "semantic-ui-react";
 import axios from "axios";
 
 const key = "a3f035ec192a43fda7a4249800aa0a79";
@@ -47,15 +47,18 @@ class NewsList extends React.Component {
           <Dimmer active>
             <Loader />
           </Dimmer>
-
-          // <Image src={`${dariSemantic}/images/wireframe/short-paragraph.png`} />
         </Segment>
+
       );
     } else if (error) {
       return <Segment>{error}</Segment>;
     }
 
     return (
+      <div>
+      <Header as='h3' block>
+        Top Headlines News From Indonesia
+      </Header>
       <Card.Group>
         {data.map(articles => {
           return (
@@ -78,6 +81,8 @@ class NewsList extends React.Component {
           );
         })}
       </Card.Group>
+      </div>
+
     );
   }
 }

@@ -6,6 +6,7 @@ import "semantic-ui-css/semantic.min.css";
 // import SourceList from './modules/SourceList';
 import NewsList from './modules/news/NewsList';
 
+
 class App extends Component {
   render() {
     return (
