@@ -48,7 +48,7 @@ class NewsList extends React.Component {
             <Loader />
           </Dimmer>
 
-          <Image src={`${dariSemantic}/images/wireframe/short-paragraph.png`} />
+          // <Image src={`${dariSemantic}/images/wireframe/short-paragraph.png`} />
         </Segment>
       );
     } else if (error) {
@@ -60,10 +60,20 @@ class NewsList extends React.Component {
         {data.map(articles => {
           return (
             <Card key={articles.id}>
-              <Image src={`${dariSemantic}/images/avatar/large/matthew.png`} />
+            <Image src={articles.urlToImage} />
               <Card.Content>
-                <Card.Header>{articles.name}</Card.Header>
-              </Card.Content>
+                <Card.Header>{articles.title}</Card.Header>
+                <Card.Meta>
+                  <span className='date'>{articles.publishedAt}</span>
+                </Card.Meta>
+                <Card.Description>{articles.description}</Card.Description>
+                </Card.Content>
+                  <Card.Content extra>
+                    <a>
+                      <Icon name='user' />
+                      From {articles.source.name}
+                    </a>
+                  </Card.Content>
             </Card>
           );
         })}
