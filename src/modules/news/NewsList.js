@@ -65,7 +65,11 @@ class NewsList extends React.Component {
             <Card key={articles.id}>
             <Image src={articles.urlToImage} />
               <Card.Content>
-                <Card.Header>{articles.title}</Card.Header>
+                <Card.Header>
+                <a href = {articles.url} target = "_blank">
+                    {articles.title}
+                </a>
+                </Card.Header>
                 <Card.Meta>
                   <span className='date'>{articles.publishedAt}</span>
                 </Card.Meta>
